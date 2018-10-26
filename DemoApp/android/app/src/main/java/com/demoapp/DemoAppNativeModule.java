@@ -8,6 +8,16 @@ import com.facebook.react.bridge.ReactMethod;
 import com.microsoft.appcenter.crashes.model.TestCrashException;
 import com.microsoft.appcenter.reactnative.shared.AppCenterReactNativeShared;
 
+class ByZeroDivider {
+
+    static class TheActualDivider {
+
+        void divideByZero() {
+            String wontWork = ("" + (42 / Integer.valueOf("0"))).toString();
+        }
+    }
+}
+
 public class DemoAppNativeModule extends BaseJavaModule {
 
     private static final String APP_SECRET = "app_secret";
@@ -50,6 +60,7 @@ public class DemoAppNativeModule extends BaseJavaModule {
          * We reach this code if Crashes.generateTestCrash detected release mode.
          * We can tell with stack trace whether we used SDK method in debug or this one in release.
          */
-        throw new TestCrashException();
+        ByZeroDivider.TheActualDivider divider = new ByZeroDivider.TheActualDivider();
+        divider.divideByZero();
     }
 }
