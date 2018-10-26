@@ -6,5 +6,6 @@
 5. Set crashes to be sent to `int`. Can be changed in `MainApplication.java (55)`.
 
 ## Notes
-1. The app must be built in release mode to send JavaScript crashes. Native Java crashes can be sent in debug or release mode. Both types of crashes are obfuscated when Proguard is enabled although it is difficult to see this in the JavaScript crashes. You can tell by looking at the exception type (for me it was obfuscated to `com.facebook.react.common.d`).
-2. Set the appsecret in `DemoApp/android/app/src/main/assets/appcenter-config.json`
+1. To setup, follow the directions in the [docs](https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/react-native). Basically you just need to run `npm install` and `react-native link` in the `DemoApp` folder before trying to build it.
+2. The app must be built in release mode to send JavaScript crashes. Native Java crashes can be sent in debug or release mode. Both types of crashes are obfuscated when Proguard is enabled although it is difficult to see this in the JavaScript crashes. You can tell by looking at the exception type (for me it was obfuscated to `com.facebook.react.common.d`).
+3. Set the appsecret in `DemoApp/android/app/src/main/assets/appcenter-config.json`
